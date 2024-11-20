@@ -124,7 +124,42 @@
 
     const SalesVisitsDashboard = () => {
       const [user, setUser] = useState(null);
-      const [visits, setVisits] = useState([]);
+      const [visits, setVisits] = useState([
+        {
+          id: 1,
+          date: '2024-03-20',
+          type: 'física',
+          client: 'Cliente A',
+          vendor: 'Juan Pérez',
+          manager: 'María López',
+          division: 'Ventas B2B',
+          status: 'Completada',
+          details: {
+            subject: 'Presentación nuevos productos',
+            requestedProducts: ['Producto X', 'Producto Y'],
+            offeredProducts: ['Producto X Plus', 'Producto Z'],
+            incidents: 'Ninguna',
+            additionalInfo: 'Cliente interesado en próxima línea'
+          }
+        },
+        {
+          id: 2,
+          date: '2024-03-21',
+          type: 'online',
+          client: 'Cliente B',
+          vendor: 'Ana García',
+          manager: 'Carlos Martín',
+          division: 'Ventas B2C',
+          status: 'Pendiente',
+          details: {
+            subject: 'Seguimiento comercial',
+            requestedProducts: ['Producto W'],
+            offeredProducts: ['Producto W Pro'],
+            incidents: 'Problema de stock',
+            additionalInfo: 'Requiere llamada de seguimiento'
+          }
+        }
+      ]);
       const [isNewVisitModalOpen, setIsNewVisitModalOpen] = useState(false);
       const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
       const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -614,12 +649,12 @@
     };
 
     const StatsCard = ({ title, value, icon }) => (
-      <div className="stats-card">
+      <div className="bg-white border rounded-lg shadow-sm p-4 flex justify-between items-center">
         <div>
           <p className="text-sm font-medium text-gray-500">{title}</p>
           <p className="text-2xl font-bold text-gray-800">{value}</p>
         </div>
-        <div className="stats-card-icon">{icon}</div>
+        <div>{icon}</div>
       </div>
     );
 
