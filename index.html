@@ -58,6 +58,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lucide-react@0.239.0/dist/umd/lucide-react.min.js"></script>
   <script type="text/babel">
     const { useState, useEffect } = React;
+    const lucideReact = window.lucideReact; // Asegúrate de acceder al objeto lucideReact desde el objeto global
     const { MessagesSquare, Phone, Video, Users, FileSpreadsheet, Filter, X, PlusCircle, LogOut } = lucideReact;
 
     // Simular base de datos con localStorage
@@ -124,42 +125,7 @@
 
     const SalesVisitsDashboard = () => {
       const [user, setUser] = useState(null);
-      const [visits, setVisits] = useState([
-        {
-          id: 1,
-          date: '2024-03-20',
-          type: 'física',
-          client: 'Cliente A',
-          vendor: 'Juan Pérez',
-          manager: 'María López',
-          division: 'Ventas B2B',
-          status: 'Completada',
-          details: {
-            subject: 'Presentación nuevos productos',
-            requestedProducts: ['Producto X', 'Producto Y'],
-            offeredProducts: ['Producto X Plus', 'Producto Z'],
-            incidents: 'Ninguna',
-            additionalInfo: 'Cliente interesado en próxima línea'
-          }
-        },
-        {
-          id: 2,
-          date: '2024-03-21',
-          type: 'online',
-          client: 'Cliente B',
-          vendor: 'Ana García',
-          manager: 'Carlos Martín',
-          division: 'Ventas B2C',
-          status: 'Pendiente',
-          details: {
-            subject: 'Seguimiento comercial',
-            requestedProducts: ['Producto W'],
-            offeredProducts: ['Producto W Pro'],
-            incidents: 'Problema de stock',
-            additionalInfo: 'Requiere llamada de seguimiento'
-          }
-        }
-      ]);
+      const [visits, setVisits] = useState([]);
       const [isNewVisitModalOpen, setIsNewVisitModalOpen] = useState(false);
       const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
       const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
